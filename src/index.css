@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.app-wrapper {
+  background-color: rgb(228, 197, 113);
+  display: grid;
+  grid-template-areas: 
+  "h h"
+  "n c";
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
+}
+.header {
+  border: 2px solid red;
+  grid-area: h;
+}
+.header img {
+  width: 40px;
+  height: 40px;
+}
+.nav {
+  grid-area: n;
+  border: 2px solid grey;
+}
+.content {
+  grid-area: c;
+  border: 2px solid yellow;
+}
