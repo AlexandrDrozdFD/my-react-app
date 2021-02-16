@@ -1,4 +1,5 @@
 import React from 'react';
+import MyPosts from './MyPosts/MyPosts';
 import styleProfile from './Profile.module.css';
 
 const Profile = () => {
@@ -8,13 +9,7 @@ const Profile = () => {
           <img src='https://image.shutterstock.com/image-photo/palm-tropical-beach-260nw-569532439.jpg' alt='img-beach'/>
         </div>
         <div>ava + descriptions</div>
-        <div>
-          My posts
-          <div>post 1</div>
-          <div>post 2 </div>
-        </div>
-
-        <div>Etc...</div>
+        <MyPosts />
     </div>
   )
 }
