@@ -1,26 +1,27 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import styleNav from './Nav.module.css';
 
 const Nav = () => {
   return (
     <nav className={styleNav.nav}>
-        <ul className='list'>
-          <li className={styleNav.item}>
-            <a href="/profile">Profile</a>
-          </li>
-          <li className={`${styleNav.item} ${styleNav.active}`}>
-          <a href="/dialogs ">Messages</a>
-          </li>
-          <li className={styleNav.item}>
-          <a href="/news">News</a>
-          </li>
-          <li className={styleNav.item}>
-          <a href="/music">Music</a>
-          </li>
-          <li className={styleNav.item}>
-          <a href="/settings">Settings</a>
-          </li>
-        </ul>
+      <ul className='list'>
+        <li className={styleNav.item}>
+          <NavLink to="/profile" activeClassName={styleNav.activeLink}>Profile</NavLink>
+        </li>
+        <li className={`${styleNav.item} ${styleNav.active}`}>
+          <NavLink to="/dialogs" activeClassName={styleNav.activeLink}>Messages</NavLink>
+        </li>
+        <li className={styleNav.item}>
+          <NavLink to="/news" activeClassName={styleNav.activeLink}>News</NavLink>
+        </li>
+        <li className={styleNav.item}>
+          <NavLink to="/music" activeClassName={styleNav.activeLink}>Music</NavLink>
+        </li>
+        <li className={styleNav.item}>
+          <NavLink to="/settings" activeClassName={styleNav.activeLink}>Settings</NavLink>
+        </li>
+      </ul>
     </nav>
   )
 }
