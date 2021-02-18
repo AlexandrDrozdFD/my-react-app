@@ -4,12 +4,12 @@ import styleProfile from './Profile.module.css';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = (props) => {
-  const { postData } = props;
-  console.log(props)
+  const { postData, addPostMessage } = props;
+  
   return (
     <div className={styleProfile.content}>
         <ProfileInfo />
-        <MyPosts postData={postData}/>
+        <MyPosts postData={postData} addPostMessage={addPostMessage} />
     </div>
   )
 }
