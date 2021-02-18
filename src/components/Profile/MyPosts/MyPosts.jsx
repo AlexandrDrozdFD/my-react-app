@@ -3,8 +3,8 @@ import styleMyPosts from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
-  console.log(props)
-  const { postData, addPostMessage } = props;
+  console.log('MyPosts props: ', props);
+  const { postData, addPostMessage, newPostText, updateNewPost } = props;
 
   const posts = postData
     .map((post) => <Post message={post.message} id={post.id} counts={post.counts} />)
@@ -12,18 +12,19 @@ const MyPosts = (props) => {
   let ourRef = React.createRef();
 
   const addPost = () => {
-
-    let refText = ourRef.current.value;
-    addPostMessage(refText);
-    console.log(refText)
+    addPostMessage();
   }
 
+  const onPostChange = () => {
+    let refText = ourRef.current.value;
+    updateNewPost(refText);
+  }
 
   return (
     <div>
       <div className={styleMyPosts.content}>
         <h3>My posts</h3>
-        <textarea ref={ourRef}></textarea>
+        <textarea ref={ourRef} value={newPostText} onChange={onPostChange} />
         <div className={styleMyPosts.btns}>
           <button onClick={addPost}>Add post</button>
           <button>REMOVE</button>

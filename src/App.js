@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import Dialogs from './components/Dialogs/Dialogs';
@@ -9,12 +8,11 @@ import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 
-
 const App = (props) => {
-  
-  const { postData } = props.state.profilePage;
+  console.log('App props: ', props);
+  const { postData, newPostText} = props.state.profilePage;
   const { dialogData, messageData } = props.state.dialogsPage;
-  const { addPostMessage } = props;
+  const { addPostMessage, updateNewPost  } = props;
 
   return (
     <BrowserRouter>
@@ -22,17 +20,28 @@ const App = (props) => {
         <Header />
         <Nav />
         <div className="app-wrapper-content">
-          
-          <Route path='/profile' render={() => <Profile postData={postData} addPostMessage={addPostMessage}/>} />
-          <Route path='/dialogs' render={() => <Dialogs dialog={dialogData} message={messageData} />} />
-          <Route path='/news' component={News} />
-          <Route path='/music' component={Music} />
-          <Route path='/settings' component={Settings} />
-        
+          <Route
+            path="/profile"
+            render={() => (
+              <Profile
+                postData={postData}
+                addPostMessage={addPostMessage}
+                newPostText={newPostText}
+                updateNewPost={updateNewPost}
+              />
+            )}
+          />
+          <Route
+            path="/dialogs"
+            render={() => <Dialogs dialog={dialogData} message={messageData} />}
+          />
+          <Route path="/news" component={News} />
+          <Route path="/music" component={Music} />
+          <Route path="/settings" component={Settings} />
         </div>
       </div>
     </BrowserRouter>
   );
-}  
+};
 
 export default App;

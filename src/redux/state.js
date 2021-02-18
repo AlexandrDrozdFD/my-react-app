@@ -7,6 +7,7 @@ const state = {
       { id: 2, message: 'Boolean ||', counts: 42 },
       { id: 3, message: 'wwwwwoooooooofffff', counts: 2 },
     ],
+    newPostText: 'defaultValue'
   },
 
   dialogsPage: {
@@ -28,14 +29,24 @@ const state = {
   settingsPage: {}
 };
 
+window.state = state;
+
 export default state;
 
-export const addPostMessage = (postMessage) => {
+export const addPostMessage = () => {
   let post = {
     id: 5,
-    message: postMessage,
+    message: state.profilePage.newPostText,
     counts: 24
   }
   state.profilePage.postData.push(post);
+  updateNewPost('');
   renderEntireTree(state);
 }
+
+export const updateNewPost = (newText) => {
+  state.profilePage.newPostText = newText;
+  renderEntireTree(state);
+}
+// updateNewPost('roro')
+// console.log('OUR STATE: ', state)
