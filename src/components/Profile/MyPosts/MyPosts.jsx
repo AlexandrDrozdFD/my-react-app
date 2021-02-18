@@ -4,7 +4,8 @@ import Post from './Post/Post';
 
 const MyPosts = (props) => {
   console.log('MyPosts props: ', props);
-  const { postData, addPostMessage, newPostText, updateNewPost } = props;
+  
+  const { postData, newPostText, updateNewPost, addPostMessage } = props;
 
   const posts = postData
     .map((post) => <Post message={post.message} id={post.id} counts={post.counts} />)
