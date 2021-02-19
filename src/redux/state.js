@@ -30,23 +30,23 @@ let store = {
   _callSubscriber() {
     console.log('State changed');
   },
-  
-  addPostMessage() {
-    
-    let post = {
-      id: 5,
-      message: this._state.profilePage.newPostText,  //!привязали к state через this and another binds below 
-      counts: 24
-    }
-    this._state.profilePage.postData.push(post);
-    this.updateNewPost('');
-    this._callSubscriber(this._state);
-  },
-  updateNewPost(newText) {
-    this._state.profilePage.newPostText = newText;
-    this._callSubscriber(this._state);
-  },
 
+  dispatch(action) {
+    if (action.type === 'ADD-POST') {
+      let post = {
+        id: 5,
+        message: this._state.profilePage.newPostText,
+        counts: 24
+      }
+      this._state.profilePage.postData.push(post);
+      this._state.profilePage.newPostText = '';
+      this._callSubscriber(this._state);
+    } 
+    else if (action.type === 'UPDATE-NEW-POST') {
+      this._state.profilePage.newPostText = action.newText;
+      this._callSubscriber(this._state);
+    }
+  },
   
   //!methods than don't change our state
   getState() {

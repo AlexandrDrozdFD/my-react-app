@@ -9,10 +9,10 @@ import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 
 const App = (props) => {
+
   console.log('App props: ', props);
-  const { postData, newPostText} = props.state.profilePage;
+  const { postData} = props.state.profilePage;
   const { dialogData, messageData } = props.state.dialogsPage;
-  const { addPostMessage, updateNewPost  } = props;
 
   return (
     <BrowserRouter>
@@ -25,9 +25,7 @@ const App = (props) => {
             render={() => (
               <Profile
                 postData={postData}
-                addPostMessage={addPostMessage}
-                newPostText={newPostText}
-                updateNewPost={updateNewPost}
+                dispatch={props.dispatch}
               />
             )}
           />

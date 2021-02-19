@@ -4,8 +4,8 @@ import Post from './Post/Post';
 
 const MyPosts = (props) => {
   console.log('MyPosts props: ', props);
-  
-  const { postData, newPostText, updateNewPost, addPostMessage } = props;
+
+  const { postData, newPostText } = props;
 
   const posts = postData
     .map((post) => <Post message={post.message} id={post.id} counts={post.counts} />)
@@ -13,12 +13,14 @@ const MyPosts = (props) => {
   let ourRef = React.createRef();
 
   const addPost = () => {
-    addPostMessage();
+    let action = { type: 'ADD-POST' };
+    props.dispatch(action);
   }
 
   const onPostChange = () => {
     let refText = ourRef.current.value;
-    updateNewPost(refText);
+    let action = { type: 'UPDATE-NEW-POST', newText: refText };
+    props.dispatch(action);
   }
 
   return (
