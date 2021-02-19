@@ -29,6 +29,7 @@ let store = {
   },
   _callSubscriber() {
     console.log('State changed');
+<<<<<<< HEAD
   },
 
   dispatch(action) {
