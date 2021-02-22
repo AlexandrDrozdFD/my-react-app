@@ -11,7 +11,7 @@ const Profile = (props) => {
     <div className={styleProfile.content}>
       <ProfileInfo />
       <MyPosts
-        postData={postData} 
+        postData={postData}
         dispatch={props.dispatch} />
     </div>
   )

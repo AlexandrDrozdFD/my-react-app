@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { sendMessageCreator, updateNewMessageBodyCreator } from "../../redux/state";
+import { sendMessageCreator, updateNewMessageBodyCreator } from "../../redux/dialogs-reducer";
 import Dialog from "./Dialog/Dialog";
 import styleDialogs from './Dialogs.module.css';
 import Message from "./Message/Message";
@@ -32,7 +32,6 @@ const Dialogs = (props) => {
       <div className={styleDialogs.dialogs}>
         <div className={styleDialogs.dialogsItems}>
           {dialogs}
-
         </div>
         <div className={styleDialogs.messages}>
           <div>{messages}</div>
@@ -42,9 +41,7 @@ const Dialogs = (props) => {
                 value={newMessageBody} 
                 onChange={handleChange} 
                 placeholder='Enter smt'>
-
               </textarea>
-              
             </div>
             <div>
               <button onClick={handleClick}>
@@ -52,7 +49,6 @@ const Dialogs = (props) => {
               </button>
             </div>
           </div>
-
         </div>
       </div>
     </div>

@@ -1,9 +1,7 @@
 import React from 'react';
-import { addPostActionCreator, addUpdatePostActionCreator } from '../../../redux/state';
+import { addPostActionCreator, addUpdatePostActionCreator } from '../../../redux/profile-reducer';
 import styleMyPosts from './MyPosts.module.css';
 import Post from './Post/Post';
-
-
 
 const MyPosts = (props) => {
   console.log('MyPosts props: ', props);
@@ -34,9 +32,7 @@ const MyPosts = (props) => {
           <button>REMOVE</button>
         </div>
         {posts}
-
       </div>
-
       <div> C* </div>
     </div>
   )
