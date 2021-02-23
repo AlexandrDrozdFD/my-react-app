@@ -1,30 +1,24 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { sendMessageCreator, updateNewMessageBodyCreator } from "../../redux/dialogs-reducer";
 import Dialog from "./Dialog/Dialog";
 import styleDialogs from './Dialogs.module.css';
 import Message from "./Message/Message";
 
-
 const Dialogs = (props) => {
-  console.log('Dialogs pops: ', props)
+  console.log('Dialogs pops: ', props);
 
-  let state = props.store.getState();
-  const { dialogData, messageData, newMessageBody } = state.dialogsPage;
-  
-  const dialogs = dialogData
+  const dialogs = props.dialogData
     .map((dialog) => <Dialog name={dialog.name} id={dialog.id} />)
 
-  const messages = messageData
+  const messages = props.messageData
     .map((message) => <Message message={message.message} id={message.id} />)
 
   const handleChange = (e) => {
     let bodyText = e.target.value;
-    props.store.dispatch(updateNewMessageBodyCreator(bodyText));
+    props.updateNewMessageBody(bodyText);
   }
 
   const handleClick = () => {
-    props.store.dispatch(sendMessageCreator());
+    props.sendMessageCreator();
   }
 
   return (
@@ -38,7 +32,7 @@ const Dialogs = (props) => {
           <div>
             <div>
               <textarea 
-                value={newMessageBody} 
+                value={props.newMessageBody} 
                 onChange={handleChange} 
                 placeholder='Enter smt'>
               </textarea>
