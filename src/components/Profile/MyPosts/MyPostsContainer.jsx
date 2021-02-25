@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import { addPostActionCreator, addUpdatePostActionCreator } from "../../../redux/profile-reducer";
 import MyPosts from "./MyPosts";
 
-
-
-
 let mapStateToProps = (state) => {
   return {
     postData: state.profilePage.postData,

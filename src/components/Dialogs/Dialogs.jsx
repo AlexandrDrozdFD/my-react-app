@@ -7,10 +7,10 @@ const Dialogs = (props) => {
   console.log('Dialogs pops: ', props);
 
   const dialogs = props.dialogData
-    .map((dialog) => <Dialog name={dialog.name} id={dialog.id} />)
+    .map((dialog) => <Dialog name={dialog.name} key={dialog.id} id={dialog.id} />)
 
   const messages = props.messageData
-    .map((message) => <Message message={message.message} id={message.id} />)
+    .map((message) => <Message message={message.message} key={message.id} id={message.id} />)
 
   const handleChange = (e) => {
     let bodyText = e.target.value;

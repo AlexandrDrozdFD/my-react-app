@@ -7,7 +7,7 @@ const MyPosts = (props) => {
   const postData = props.postData;
  
   let posts = postData
-    .map((post) => <Post message={post.message} id={post.id} counts={post.counts} />)
+    .map((post) => <Post key={post.id} message={post.message} id={post.id} counts={post.counts} />)
 
   let ourRef = React.createRef();
 
